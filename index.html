@@ -12,7 +12,7 @@
     <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
     <link rel="preload" href="//app.usercentrics.eu/browser-ui/latest/loader.js" as="script">
     <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
-    <script id="usercentrics-cmp" data-settings-id="O-NhwsNjh" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" async></script>
+    <script id="usercentrics-cmp" data-settings-id=" DGN4Gn8MS6wYhL" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" async></script>
     <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
     <!-- END Usercentrics related code -->
     
@@ -49,65 +49,8 @@
     <h1>Usercentrics CMP V2 Test Page</h1>
     <img src="https://usercentrics.com/wp-content/uploads/2020/04/190208-UCS-Logo-800px.png" alt="uc-logo">
    
-    
-    <script>
-        //replace the 7bFNv7DLf to the technology id that you want!
-        var templateID = "7bFNv7DLf";
-        var page = 0;
-         window.addEventListener('UC_UI_INITIALIZED', function(event) {
-                var Matterport = UC_UI.getServicesBaseInfo().find(data => (data.id === 7bFNv7DLf)).name;
-                document.getElementById('Matterport').innerHTML=Matterport;
-                document.getElementById('tech_name2').innerHTML=technologyName;
-       
-            window.addEventListener ("ucEvent", function (e) {
-                
-                if (e.detail.event == "consent_status" && e.detail.type  == "implicit" && page == 0){
-                    page=1;
-                    
-                }else{
-                if (e.detail.event == "consent_status" && e.detail.type  == "explicit" && page == 0){
-                    page=1;
-                }else{
-                    if(e.detail.event == "consent_status" && e.detail.type  == "explicit" && page == 1){
-                    location.reload();
-                    }
-                }
-              }
 
-            });
-
-        window.addEventListener("ucEvent", function (e) {
-        
-            if(e.detail.type == "explicit" && e.detail[technologyName.toString()]){
-                //replace the iframe to the code that you want show
-                document.getElementById('log').innerHTML = '<iframe width='853' height='480' src='https://my.matterport.com/show/?m=XdYJ7AoyaMp' frameborder='0' class="testrm" allowfullscreen allow='xr-spatial-tracking'></iframe>';
-                
-        }
-        });
-
-    }); 
-
-        function giveconsent() {
-        UC_UI.acceptService(7bFNv7DLf).then(() => console.log('Service is accepted'));
-    }
-    function moreinfo() {
-        UC_UI.showSecondLayer(7bFNv7DLf);
-        
-    }
-
-        
-        </script>
-<!-- Here you can change the banner css and the text  -->
-<div id="log">
-    <div style="height: 250px; width: 400px;background-color: #fff7e6; border-radius: 2%;">
-        <p style="text-align: center; font-family: Verdana; padding-top: 30px;"> We need your consent to load the <span id="tech_name"></span> service!</p>
-        <p style="text-align: center; font-family: Verdana; padding-top: 5px;font-size: 12px;"> We use <span id="tech_name2"></span> to embed content that may collect data about your activity. Please review the details and accept the service to see this content.</p>
-    <div style="padding: 30px; align-items: center;">
-        <button style="border-radius: 2%; border: none;  width: 150px;height: 40px;" onclick="moreinfo()">More Information</button>
-        <button style="border-radius: 2%; border: none; width: 150px;height: 40px;"onclick="giveconsent()">Accept</button>
-    </div>
-    </div>
-</div>
+   
 </body>
 
 </html>
